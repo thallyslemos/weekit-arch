@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id   String @id
+  nome String
+
+  Projeto Projeto[]
+}
+
+model Projeto {
+  id            String   @id
+  nome          String
+  responsavel   Usuario  @relation(fields: [responsavelId], references: [id])
+  responsavelId String
+  dataInicio    DateTime
+  dataFim       DateTime
+
+  Tarefa Tarefa[]
+}
+
+model Tarefa {
+  id         String  @id
+  titulo     String
+  descricao  String
+  finalizada Boolean
+  projeto    Projeto @relation(fields: [projetoId], references: [id])
+  projetoId  String
+}
