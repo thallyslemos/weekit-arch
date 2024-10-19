@@ -1,86 +1,138 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Arquitetura de Software com TDD e DDD - WeekIT 2024
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este mini-curso foca na aplicação prática dos princípios de Desenvolvimento Orientado por Testes (TDD) e Design Orientado por Domínio (DDD) na construção de um sistema simples de gerenciamento de projetos.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Autores
 
-## Description
+- [Herbert Duarte](https://github.com/HerbertDuarte)
+- [Thallys Lemos](https://github.com/thallyslemos)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Índice
 
-## Project setup
+- [Arquitetura de Software com TDD e DDD - WeekIT 2024](#arquitetura-de-software-com-tdd-e-ddd---weekit-2024)
+  - [Autores](#autores)
+  - [Índice](#índice)
+  - [Introdução](#introdução)
+  - [Conceitos de DDD](#conceitos-de-ddd)
+  - [Noções Básicas de TDD](#noções-básicas-de-tdd)
+  - [Visão Geral do Projeto](#visão-geral-do-projeto)
+  - [Modelo de Domínio](#modelo-de-domínio)
+  - [Aplicando Conceitos de DDD](#aplicando-conceitos-de-ddd)
+  - [Configuração do Projeto](#configuração-do-projeto)
+  - [Executando Testes](#executando-testes)
+  - [Diagrama de Classes](#diagrama-de-classes)
+  - [Configuração do Projeto](#configuração-do-projeto-1)
+    - [Endpoints](#endpoints)
 
-```bash
-$ npm install
+## Introdução
+
+Este curso tem como objetivo proporcionar uma experiência prática na aplicação dos princípios de TDD e DDD para criar uma arquitetura de software robusta e sustentável. Vamos focar na construção da camada de domínio de um sistema de gerenciamento de projetos, demonstrando como essas metodologias podem levar a um código mais limpo e organizado que reflete de perto os requisitos de negócios.
+
+## Conceitos de DDD
+
+- Entidades
+- Objetos de Valor
+- Agregados
+- Repositórios
+
+## Noções Básicas de TDD
+
+- Ciclo Red-Green-Refactor
+- Escrevendo testes significativos
+- Isolamento de testes
+
+## Visão Geral do Projeto
+
+Estamos construindo um sistema simples de gerenciamento de projetos com as seguintes entidades principais:
+
+- Projeto
+- Tarefa
+- Usuário
+
+## Modelo de Domínio
+
+Nosso foco será na implementação e teste da camada de domínio, que encapsula a lógica de negócios principal de nossa aplicação.
+
+## Aplicando Conceitos de DDD
+
+Além das entidades básicas, aplicaremos os seguintes conceitos de DDD:
+
+1. **Objeto de Valor**: Criar um objeto de valor `DateRange` para representar as datas de início e fim de um projeto.
+
+2. **Agregado**: Tratar `Projeto` como uma raiz de agregado, com `Tarefa` como parte de seu agregado.
+
+
+## Configuração do Projeto
+
+Este projeto usa NestJS. Para configurá-lo:
+
+1. Clone o repositório
+2. Instale as dependências:
+  ```
+  npm install
+  ```
+3. Execute o servidor de desenvolvimento:
+  ```
+  npm run start:dev
+  ```
+
+## Executando Testes
+
+Execute a suíte de testes usando Jest:
+
+```
+npm run test
 ```
 
-## Compile and run the project
+## Diagrama de Classes
 
-```bash
-# development
-$ npm run start
+![Diagrama de Classes](./assets/docs/classes.png)
 
-# watch mode
-$ npm run start:dev
 
-# production mode
-$ npm run start:prod
-```
+## Configuração do Projeto
 
-## Run tests
+- Este projeto usa NestJS. Para configurá-lo:
 
-```bash
-# unit tests
-$ npm run test
+1. Clone o repositório.
+   
+2. Instale as dependências:
+    ```bash
+    npm install
+    ```
 
-# e2e tests
-$ npm run test:e2e
+1. Execute o servidor de desenvolvimento:
 
-# test coverage
-$ npm run test:cov
-```
+   ```bash
+   npm run start:dev
+   ```
 
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+2. Acesse o servidor em `http://localhost:3000`.
+  ### Endpoints
+  - `POST /projetos`: Cria um novo projeto.
+    - Body da requisição:
+      ```json
+      {
+          "nome": "TCC 1",
+          "responsavel": "Herbert",
+          "dataFim": "2021-12-31"
+      }
+      ```
+  - `GET /projetos`: Retorna a lista de projetos.
+    - Resposta esperada:
+      ```json
+      [
+        {
+          "periodo": {
+            "dataInicio": "2024-10-16T15:30:21.697Z",
+            "dataFim": "2021-12-31T00:00:00.000Z"
+          },
+          "id": "ece0c6a3-55bf-4d3c-88a8-2200845285e1",
+          "nome": "Projeto 1",
+          "responsavel": {
+            "nome": "João",
+            "id": "25e48c92-6f4e-4f5c-b9a0-ba6fbccec450"
+          },
+          "tarefas": []
+        }
+      ]
+      ```
