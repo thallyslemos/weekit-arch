@@ -7,6 +7,7 @@ export class Usuario {
     constructor(nome:string, id?:string){
         this.nome = nome
         this.id = id ?? randomUUID()
+        this._validaNome()
         // if(id){
         //     this.id = id
         // }else{
@@ -14,7 +15,11 @@ export class Usuario {
         // }   
     }
 
-    getNome = () => this.nome
-    getId = () => this.id
+    public getNome = () => this.nome
+    public getId = () => this.id
 
+    private _validaNome = () => {
+        if (this.nome.length < 3)
+            throw Error("Nome muito curto.")
+    }
 }
